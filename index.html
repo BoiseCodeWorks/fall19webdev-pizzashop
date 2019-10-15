@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
-
-
-
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <form onsubmit="app.pizzaController.addPizza(event)">
+            <div class="input-group mb-3">
+              <input
+              type="text"
+              name="pizzaName"
+              class="form-control"
+              placeholder="Pizza Type"
+              aria-label="Pizza Type"
+              aria-describedby="button-addon2"
+              />
+              <div class="input-group-append">
+                <button
+                class="btn btn-outline-secondary"
+                type="submit"
+                id="button-addon2"
+                >
+                Add Pizza
+              </button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="pizzas"></div>
+    </div>
     <script src="app/main.js" type="module"></script>
-</body>
-
+  </body>
 </html>
