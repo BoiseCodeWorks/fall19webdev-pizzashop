@@ -1,14 +1,15 @@
 export default class Pizza {
-  getToppings() {
+  getToppings(pizzaIndex) {
     let template = "<ul>";
-    this.toppings.forEach(T => {
+    this.toppings.forEach((T, i) => {
       template += `
-    <li>${T}</li>      
-          `;
+    <li>${T}<span class="text-danger" onclick="app.pizzaController.removeTopping(${pizzaIndex}, ${i})">X</span></li>      
+    `;
     });
     template += "</ul>";
     return template;
   }
+
   constructor(data) {
     this.name = data.name;
     this.toppings = data.toppings || [];
@@ -21,9 +22,8 @@ export default class Pizza {
       <h1>${this.name}</h1>
       <h3>${this.crustType}</h3>
       <h3>Toppings: </h3>
-      
       `;
-    template += this.getToppings();
+    template += this.getToppings(index);
     template += `
       <form onsubmit="app.pizzaController.addTopping(event, '${index}')">
             <div class="input-group mb-3">
@@ -48,7 +48,9 @@ export default class Pizza {
             </div>
           </form> 
       `;
-    template += "</div >";
+    template += `
+          <button class="btn btn-danger" onclick="app.pizzaController.removePizza(${index})">Remove Pizza</button>
+        </div>`;
     return template;
   }
 }

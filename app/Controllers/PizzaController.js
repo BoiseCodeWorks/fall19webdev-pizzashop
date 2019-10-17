@@ -31,4 +31,17 @@ export default class PizzaController {
     _pizzaService.addTopping(event.target.toppingName.value, pizzaIndex);
     _drawPizzas();
   }
+
+  removePizza(pizzaIndex) {
+    if (!window.confirm("Are you sure you want to delete that pizzea?")) {
+      return;
+    }
+    _pizzaService.removePizza(pizzaIndex);
+    _drawPizzas();
+  }
+
+  removeTopping(pizzaIndex, toppingIndex) {
+    _pizzaService.removeTopping(pizzaIndex, toppingIndex);
+    _drawPizzas();
+  }
 }
